@@ -3,10 +3,20 @@ const keys = ['c-key', 'd-key', 'e-key', 'f-key', 'g-key', 'a-key', 'b-key', 'hi
 const notes = [];
 keys.forEach(function(key){
   notes.push(document.getElementById(key));
+  console.log(key)
 })
 
 // Write named functions that change the color of the keys below
+function keyPlay(event) {
+  var targetKey = event.target; // Accède à l'élément cible
+  targetKey.style.backgroundColor = "red"; // Modifie la couleur d'arrière-plan de l'élément cible
+  // console.log(key)
+}
 
+// Écouteur d'événement pour chaque touche du piano
+keys.forEach(function(key) {
+  key.addEventListener("click", keyPlay);
+});
 
 // Write a named function with event handler properties
 
