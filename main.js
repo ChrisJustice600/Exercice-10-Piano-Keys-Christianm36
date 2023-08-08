@@ -3,25 +3,42 @@ const keys = ['c-key', 'd-key', 'e-key', 'f-key', 'g-key', 'a-key', 'b-key', 'hi
 const notes = [];
 keys.forEach(function(key){
   notes.push(document.getElementById(key));
-  console.log(key)
+  // console.log(key)
 })
 
+
 // Write named functions that change the color of the keys below
-function keyPlay(event) {
-  var targetKey = event.target; // Accède à l'élément cible
+function keyPlay(e){
+  let targetKey = e.target; // Accède à l'élément cible
   targetKey.style.backgroundColor = "red"; // Modifie la couleur d'arrière-plan de l'élément cible
-  // console.log(key)
+}
+// function keyPlay(event) {
+//   var targetKey = event.target; // Accède à l'élément cible
+//   targetKey.style.backgroundColor = "red"; // Modifie la couleur d'arrière-plan de l'élément cible
+// }
+
+function keyReturn(e){
+  let targetKey = e.target; // Accède à l'élément cible
+  targetKey.style.backgroundColor = "";  // Modifie la couleur en le ramenant en vide d'arrière-plan de l'élément cible
 }
 
 // Écouteur d'événement pour chaque touche du piano
-keys.forEach(function(key) {
-  key.addEventListener("click", keyPlay);
-});
+// keys.forEach(function(key) {
+//   key.addEventListener("click", keyPlay);
+// });
 
 // Write a named function with event handler properties
-
+function bgtouch(note){
+   note.addEventListener("mousedown", keyPlay);
+   note.addEventListener("mouseup", keyReturn);
+}
 
 // Write a loop that runs the array elements through the function
+
+notes.forEach(function(note){
+  bgtouch(note)
+  // console.log(key)
+})
 
 
 // These variables store the buttons that progress the user through the lyrics
