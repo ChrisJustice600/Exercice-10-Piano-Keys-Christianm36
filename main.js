@@ -1,10 +1,15 @@
 // The keys and notes variables store the piano keys
 const keys = ['c-key', 'd-key', 'e-key', 'f-key', 'g-key', 'a-key', 'b-key', 'high-c-key', 'c-sharp-key', 'd-sharp-key', 'f-sharp-key', 'g-sharp-key', 'a-sharp-key'];
 const notes = [];
+
 keys.forEach(function(key){
   notes.push(document.getElementById(key));
   // console.log(key)
 })
+
+
+
+
 
 
 // Write named functions that change the color of the keys below
@@ -56,10 +61,22 @@ nextThree.hidden = true;
 startOver.hidden= true;
 
 // Write anonymous event handler property and function for the first progress button
-
+nextOne.addEventListener("click", ()=> {
+  nextTwo.hidden = false;
+  nextOne.hidden = true
+  document.getElementById('letter-note-five').innerHTML = 'D';
+  document.getElementById('letter-note-six').innerHTML = 'C';
+  lastLyric.style.display = "inline-block"
+})
 
 // Write anonymous event handler property and function for the second progress button
+nextTwo.addEventListener("click", ()=> {
+  nextThree.hidden = false;
+  nextTwo.hidden = true
+  document.getElementById('word-five').innerHTML = 'DEAR';
+  document.getElementById('word-six').innerHTML = 'FRI';
 
+})
 
 // Write anonymous event handler property and function for the third progress button
 
